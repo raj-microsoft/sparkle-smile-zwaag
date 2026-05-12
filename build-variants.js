@@ -124,7 +124,7 @@ const V0_HTML = `<!-- HERO -->
 
 `;
 
-writeVariant('v0-side', '00 \u00b7 Side-by-side', V0_CSS, V0_HTML);
+writeVariant('v0-side', '00 \u00b7 Side-by-side', V0_CSS, V0_HTML, { href: 'variants/v0-side/', text: '00 \u00b7 Side-by-side' });
 
 // =====================================================================
 // Variant V2 \u2014 SPLIT FRAME (image card + sage editorial sidebar)
@@ -202,7 +202,7 @@ const V2_HTML = `<!-- HERO -->
 
 `;
 
-writeVariant('v2-split', '02 \u00b7 Split frame', V2_CSS, V2_HTML);
+writeVariant('v2-split', '02 \u00b7 Split frame', V2_CSS, V2_HTML, { href: 'variants/v2-split/', text: '02 \u00b7 Split frame' });
 
 // =====================================================================
 // Variant V3 \u2014 CENTERED COVER (image inset under giant centered headline)
@@ -276,6 +276,6 @@ const V3_HTML = `<!-- HERO -->
 
 `;
 
-writeVariant('v3-centered', '03 \u00b7 Centered cover', V3_CSS, V3_HTML);
+writeVariant('v3-centered', '03 \u00b7 Centered cover', V3_CSS, V3_HTML, { href: 'variants/v3-centered/', text: '03 \u00b7 Centered cover' });
 
 console.log('\nDone. Variants written under public/variants/');
