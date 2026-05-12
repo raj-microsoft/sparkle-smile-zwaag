@@ -72,12 +72,56 @@
   .nav-links a:hover::after{transform:scaleX(1)}
   @media(min-width:1100px){.nav-links{display:flex}}
 
+  /* HAMBURGER */
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid var(--line);border-radius:50%;cursor:pointer;color:var(--ink);transition:all .25s;flex:none;-webkit-tap-highlight-color:transparent}
+  .menu-btn:hover,.menu-btn:focus-visible{border-color:var(--ink);background:var(--cream)}
+  .menu-btn .bars{position:relative;width:18px;height:12px}
+  .menu-btn .bars span{position:absolute;left:0;right:0;height:1.5px;background:var(--ink);border-radius:1px;transition:transform .35s cubic-bezier(.6,.05,.3,1.2),opacity .2s,top .35s cubic-bezier(.6,.05,.3,1.2),width .35s}
+  .menu-btn .bars span:nth-child(1){top:0}
+  .menu-btn .bars span:nth-child(2){top:5px;width:13px;left:auto;right:0}
+  .menu-btn .bars span:nth-child(3){top:10px}
+  body.menu-open .menu-btn .bars span:nth-child(1){top:5px;transform:rotate(45deg)}
+  body.menu-open .menu-btn .bars span:nth-child(2){opacity:0;transform:translateX(8px)}
+  body.menu-open .menu-btn .bars span:nth-child(3){top:5px;transform:rotate(-45deg);width:18px}
+  @media(min-width:1100px){.menu-btn{display:none}}
+
+  /* DRAWER */
+  .drawer{position:fixed;inset:0;z-index:90;pointer-events:none;visibility:hidden}
+  .drawer-veil{position:absolute;inset:0;background:rgba(15,24,20,.4);opacity:0;transition:opacity .4s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+  .drawer-panel{position:absolute;top:0;right:0;height:100dvh;width:min(420px,100vw);background:var(--bg);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .5s cubic-bezier(.7,0,.2,1);box-shadow:-30px 0 60px -20px rgba(15,24,20,.25);overflow-y:auto;overscroll-behavior:contain}
+  body.menu-open .drawer{pointer-events:auto;visibility:visible}
+  body.menu-open .drawer-veil{opacity:1}
+  body.menu-open .drawer-panel{transform:translateX(0)}
+  body.menu-open{overflow:hidden}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px 0;flex:none}
+  .drawer-head .brand{font-size:1.18rem}
+  .drawer-close{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .2s}
+  .drawer-close:hover{border-color:var(--ink);background:var(--cream)}
+  .drawer-nav{padding:36px 24px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .drawer-nav a{display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-size:2.2rem;font-weight:400;color:var(--ink);line-height:1.05;padding:14px 0;border-bottom:1px solid rgba(15,24,20,.06);transition:color .25s,padding-left .35s cubic-bezier(.2,.7,.2,1);transform:translateX(20px);opacity:0;animation:drawerItem .5s cubic-bezier(.2,.7,.2,1) forwards}
+  .drawer-nav a:hover{color:var(--sage-deep);padding-left:8px}
+  .drawer-nav a .num{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;flex:none;width:24px}
+  .drawer-nav a:nth-child(1){animation-delay:.18s}
+  .drawer-nav a:nth-child(2){animation-delay:.24s}
+  .drawer-nav a:nth-child(3){animation-delay:.3s}
+  .drawer-nav a:nth-child(4){animation-delay:.36s}
+  .drawer-nav a:nth-child(5){animation-delay:.42s}
+  body:not(.menu-open) .drawer-nav a{animation:none;opacity:0;transform:translateX(20px)}
+  @keyframes drawerItem{to{opacity:1;transform:translateX(0)}}
+  .drawer-foot{padding:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:14px;flex:none;background:var(--cream)}
+  .drawer-foot a{display:flex;align-items:center;gap:12px;color:var(--ink);font-size:.95rem}
+  .drawer-foot a svg{color:var(--sage-deep);flex:none}
+  .drawer-foot .small{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.5}
+  .drawer-cta{margin-top:8px;background:var(--ink);color:var(--cream)!important;padding:14px 20px;border-radius:999px;font-weight:600;font-size:.92rem;text-align:center;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:10px}
+  .drawer-cta .arr{transition:transform .3s}
+  .drawer-cta:hover .arr{transform:translateX(4px)}
+
   /* RIGHT CLUSTER */
   .nav-right{display:flex;align-items:center;gap:10px}
   @media(min-width:760px){.nav-right{gap:18px}}
-  /* hide booking CTA on tiny screens, FAB handles it */
+  /* hide booking CTA below desktop, FAB + drawer handle it */
   .nav-right > .btn{display:none}
-  @media(min-width:520px){.nav-right > .btn{display:inline-flex}}
+  @media(min-width:1100px){.nav-right > .btn{display:inline-flex}}
   .nav-contact{display:none;flex-direction:column;align-items:flex-end;gap:1px;line-height:1.15;text-align:right;padding-right:18px;border-right:1px solid var(--line);transition:opacity .3s}
   .nav.scrolled .nav-contact{opacity:.85}
   .nav-contact a{transition:color .25s}
@@ -336,9 +380,38 @@
         </div>
       </div>
       <a href="#book" class="btn btn-primary"><span data-i18n="cta_book">Afspraak maken</span> <span class="arr">→</span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="drawer">
+        <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Hoofdmenu">
+  <div class="drawer-veil" data-close></div>
+  <aside class="drawer-panel">
+    <div class="drawer-head">
+      <span class="brand"><span class="brand-mark" aria-hidden="true">S</span><span class="brand-text">Sparkle Smile</span></span>
+      <button class="drawer-close" type="button" data-close aria-label="Sluiten">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" aria-label="Mobiel menu">
+      <a href="#care" data-close><span class="num">01</span><span data-i18n="nav_care">Zorg</span></a>
+      <a href="#tech" data-close><span class="num">02</span><span data-i18n="nav_tech">Techniek</span></a>
+      <a href="#treatments" data-close><span class="num">03</span><span data-i18n="nav_treatments">Behandelingen</span></a>
+      <a href="#voices" data-close><span class="num">04</span><span data-i18n="nav_voices">Patiënten</span></a>
+      <a href="#faq" data-close><span class="num">05</span><span data-i18n="nav_faq">FAQ</span></a>
+    </nav>
+    <div class="drawer-foot">
+      <a href="tel:0229756979"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>0229 756 979</a>
+      <a href="mailto:info@sparklesmiledentalclinic.nl"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>info@sparklesmiledentalclinic.nl</a>
+      <p class="small">De Corantijn 25 E<br>1689 AN Zwaag</p>
+      <a href="#book" class="drawer-cta" data-close><span data-i18n="cta_book">Afspraak maken</span> <span class="arr">→</span></a>
+    </div>
+  </aside>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -938,6 +1011,15 @@
     document.querySelectorAll('.lang-menu button').forEach(b=>{
       b.addEventListener('click', ()=>{applyLang(b.dataset.lang);closeLang()});
     });
+
+    // DRAWER
+    const menuBtn = document.getElementById('menu-btn');
+    const drawer = document.getElementById('drawer');
+    function openMenu(){document.body.classList.add('menu-open');menuBtn.setAttribute('aria-expanded','true')}
+    function closeMenu(){document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false')}
+    menuBtn.addEventListener('click',()=>{document.body.classList.contains('menu-open')?closeMenu():openMenu()});
+    drawer.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-open'))closeMenu()});
   });
 
   // ---------- Scroll progress ----------
