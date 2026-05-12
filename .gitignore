@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+.vercel
+.cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Original PNGs (kept locally, optimized variants are in repo)
+public/img/*.png
+!public/img/.gitkeep
+
+# Local helper scripts (regenerable)
+optimize-images.js
+optimize-html.js
+rewrite-nav.js
