@@ -163,9 +163,10 @@
   /* MOBILE: image first */
   .hero-img-wrap{order:-1}
   @media(min-width:980px){
-    .hero{padding-top:72px;padding-bottom:80px}
-    .hero-grid{grid-template-columns:1fr 1.08fr;gap:72px}
+    .hero{padding-top:48px;padding-bottom:80px}
+    .hero-grid{grid-template-columns:1fr 1.08fr;gap:72px;align-items:start}
     .hero-img-wrap{order:0}
+    .hero-text{padding-top:8px}
   }
   .hero h1{font-size:clamp(3rem,11vw,6.6rem);margin:18px 0 0}
   .hero h1 em{font-style:italic;color:var(--sage-deep);font-weight:300}
@@ -442,7 +443,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
-    <div class="reveal in">
+    <div class="reveal in hero-text">
       <span class="eyebrow" data-i18n="hero_eyebrow">Tandarts in Zwaag · 3Shape TRIOS · Sinds 2018</span>
       <h1 class="display"><span data-i18n="hero_h1_a">Een glimlach</span> <em data-i18n="hero_h1_b">die straalt.</em></h1>
       <p class="hero-lede" data-i18n="hero_lede">Implantaten, klikgebit, facings en esthetische tandheelkunde — verzorgd in een warme, gastvrije omgeving. Ook voor angstige patiënten. Wij spreken Nederlands, Engels, Spaans en Papiaments.</p>
