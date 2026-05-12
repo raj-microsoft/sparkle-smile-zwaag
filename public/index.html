@@ -291,19 +291,22 @@
   details p{margin:14px 0 0;color:var(--ink-2);line-height:1.75;max-width:64ch;font-size:1rem}
 
   /* BOOKING */
-  .booking{background:var(--ink);color:var(--cream);border-radius:24px;padding:64px 48px;display:grid;grid-template-columns:1fr;gap:48px;position:relative;overflow:hidden}
-  @media(min-width:980px){.booking{grid-template-columns:1.1fr 1fr;padding:80px 72px}}
+  .booking{background:var(--ink);color:var(--cream);border-radius:24px;padding:36px 22px;display:grid;grid-template-columns:1fr;gap:36px;position:relative;overflow:hidden;min-width:0}
+  @media(min-width:600px){.booking{padding:48px 36px}}
+  @media(min-width:980px){.booking{grid-template-columns:1.1fr 1fr;padding:80px 72px;gap:48px}}
   .booking::before{content:"";position:absolute;right:-160px;top:-160px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(155,179,154,.18),transparent 70%);pointer-events:none}
-  .booking h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,4.6vw,3.6rem);margin:18px 0 22px;letter-spacing:-.025em;line-height:1.04}
+  .booking h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,7vw,3.6rem);margin:18px 0 22px;letter-spacing:-.025em;line-height:1.05;overflow-wrap:break-word}
   .booking h2 em{font-style:italic;color:var(--sage)}
   .booking p{color:#c8cfca;line-height:1.7;margin:0 0 14px}
-  .booking .info{margin-top:32px;display:grid;gap:16px;font-size:.96rem;color:#cfd6d1}
-  .booking .info .row{display:flex;gap:14px;align-items:flex-start}
+  .booking .info{margin-top:28px;display:grid;gap:16px;font-size:.94rem;color:#cfd6d1;min-width:0}
+  .booking .info .row{display:flex;gap:14px;align-items:flex-start;min-width:0}
+  .booking .info .row > div{min-width:0;overflow-wrap:anywhere}
   .booking .info svg{flex:none;color:var(--sage);margin-top:3px}
   .booking .info b{color:var(--cream);font-weight:600}
   .booking .info a{color:#cfd6d1}
   .booking .info a:hover{color:var(--sage)}
-  .form{display:grid;gap:18px;background:rgba(255,255,255,.04);padding:32px;border-radius:18px;border:1px solid rgba(255,255,255,.07);position:relative;z-index:1}
+  .form{display:grid;gap:18px;background:rgba(255,255,255,.04);padding:24px 20px;border-radius:18px;border:1px solid rgba(255,255,255,.07);position:relative;z-index:1;min-width:0}
+  @media(min-width:600px){.form{padding:32px}}
   .field{display:flex;flex-direction:column;gap:8px}
   .field label{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#a7b3ad;font-weight:600}
   .field input,.field select,.field textarea{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.18);padding:10px 0 12px;color:var(--cream);font-family:var(--sans);font-size:1rem;outline:none;transition:border-color .25s}
@@ -335,9 +338,9 @@
   @media(min-width:760px){.fab{display:none}}
   @keyframes pulse{0%,100%{box-shadow:0 12px 32px -12px rgba(15,24,20,.6),0 0 0 0 rgba(155,179,154,.5)}50%{box-shadow:0 12px 32px -12px rgba(15,24,20,.6),0 0 0 14px rgba(155,179,154,0)}}
 
-  /* Cursor follower */
-  .cursor{position:fixed;width:14px;height:14px;border-radius:50%;background:var(--sage);pointer-events:none;mix-blend-mode:multiply;transform:translate(-50%,-50%);transition:transform .25s ease, width .3s, height .3s, opacity .3s;z-index:100;opacity:0}
-  @media(hover:hover) and (min-width:1020px){.cursor{opacity:.55}}
+  /* Cursor follower (desktop only) */
+  .cursor{position:fixed;width:14px;height:14px;border-radius:50%;background:var(--sage);pointer-events:none;mix-blend-mode:multiply;transform:translate(-50%,-50%);transition:transform .25s,width .3s,height .3s,opacity .3s;z-index:50;opacity:0;display:none}
+  @media(hover:hover) and (pointer:fine) and (min-width:1020px){.cursor{display:block;opacity:.55}}
   .cursor.big{width:60px;height:60px;opacity:.35}
 
   .progress{position:fixed;top:0;left:0;height:2px;background:var(--ink);z-index:60;width:0;transition:width .1s linear}
