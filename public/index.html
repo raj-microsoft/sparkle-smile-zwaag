@@ -161,12 +161,12 @@
   /* HERO */
   .hero{position:relative;padding-top:32px;padding-bottom:64px;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:end}
+  /* Mobile: text first, image second (natural source order) */
   /* MOBILE: image first */
-  .hero-img-wrap{order:-1}
+  .hero-img-wrap{order:0}
   @media(min-width:980px){
     .hero{padding-top:48px;padding-bottom:80px}
     .hero-grid{grid-template-columns:1fr 1.08fr;gap:72px;align-items:start}
-    .hero-img-wrap{order:0}
     .hero-text{padding-top:8px}
   }
   .hero h1{font-size:clamp(3rem,11vw,6.6rem);margin:18px 0 0}
@@ -236,8 +236,7 @@
   .treat{background:var(--ink);display:flex;flex-direction:column;min-height:280px;transition:background .5s;cursor:pointer;position:relative;overflow:hidden}
   .treat-img{aspect-ratio:4/3;width:100%;overflow:hidden;background:#1a2520;position:relative}
   .treat-img picture,.treat-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
-  /* Tone treatment imagery toward the sage/cream palette so they read as one set */
-  .treat-img img{filter:saturate(.7) sepia(.18) hue-rotate(48deg) brightness(.95) contrast(1.04)}
+  /* Treatment imagery is natively sage-toned, no filter needed */
   .treat:hover .treat-img img{transform:scale(1.035)}
   .treat-body{padding:28px 28px 30px;display:flex;flex-direction:column;gap:14px;position:relative}
   .treat .num{display:none}
