@@ -344,6 +344,24 @@
   .cursor.big{width:60px;height:60px;opacity:.35}
 
   .progress{position:fixed;top:0;left:0;height:2px;background:var(--ink);z-index:60;width:0;transition:width .1s linear}
+  /* Editorial wide banner image (full container width, cinematic ratio) */
+  .editorial-banner{margin:0 0 72px;border-radius:18px;overflow:hidden;background:#e8e3da;aspect-ratio:21/9;position:relative}
+  .editorial-banner picture,.editorial-banner img{width:100%;height:100%;object-fit:cover;display:block}
+  .editorial-banner .cap{position:absolute;left:24px;bottom:20px;font-family:var(--serif);font-style:italic;color:#fff;font-size:1.05rem;letter-spacing:.005em;text-shadow:0 2px 14px rgba(0,0,0,.35);max-width:60%;line-height:1.35;opacity:.94}
+  @media(min-width:760px){.editorial-banner{margin:0 0 88px;border-radius:24px}.editorial-banner .cap{left:36px;bottom:28px;font-size:1.2rem}}
+
+  /* Quiet full-bleed strip image between sections */
+  .strip-image{background:#e8e3da;aspect-ratio:21/8;overflow:hidden;position:relative}
+  .strip-image picture,.strip-image img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(min-width:760px){.strip-image{aspect-ratio:21/6}}
+
+  /* Voices section: image + grid layout */
+  .voices-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+  .voices-grid .voices-img{border-radius:18px;overflow:hidden;background:#e8e3da;aspect-ratio:4/5;order:-1}
+  .voices-grid .voices-img picture,.voices-grid .voices-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .voices-grid .quotes{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:880px){.voices-grid{grid-template-columns:.8fr 1fr;gap:48px}.voices-grid .voices-img{position:sticky;top:120px;border-radius:24px;order:0;aspect-ratio:4/5}}
+
 </style>
 </head>
 <body>
@@ -486,6 +504,10 @@
       </div>
       <p class="reveal d1" data-i18n="care_p">Elke afspraak is opgebouwd rond de mens in de stoel — niet rond een agenda vol kwartiertjes. Wij nemen het tempo dat uw mond en uw zenuwen verdienen.</p>
     </div>
+    <figure class="editorial-banner reveal d2">
+      <picture style="background:#e8e3da center/cover no-repeat url('data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBACdASoYABAAPxFysFAsJqSisAgBgCIJYwCdABive4q/NspO3TJrgAD+XrTnSW/c9wF+509lLUJn+Tgq9G1LAxZ5vjLRtpUM/Zx6NAj5oDk3D1qxJ1Urtml+EudIDbA4Oy5WAt1QS4Hbbkp2r9fqY9UaT52eKnL1glytJTeeZ56d8tGV/i4A')"><source type="image/avif" srcset="img/welcome-900.avif 900w, img/welcome-1600.avif 1600w" sizes="(max-width: 1100px) 92vw, 1200px"><source type="image/webp" srcset="img/welcome-900.webp 900w, img/welcome-1600.webp 1600w" sizes="(max-width: 1100px) 92vw, 1200px"><img src="img/welcome-1600.webp" alt="De wachtruimte van Sparkle Smile in Zwaag" loading="lazy" decoding="async"></picture>
+      <figcaption class="cap" data-i18n="banner_cap">Stilte als ontvangst — voordat het eerste woord valt.</figcaption>
+    </figure>
     <div class="promises">
       <div class="promise reveal">
         <span class="num">01</span>
@@ -595,6 +617,11 @@
   </div>
 </section>
 
+<!-- DETAIL STRIP -->
+<div class="strip-image reveal" aria-hidden="true">
+  <picture style="background:#e8e3da center/cover no-repeat url('data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoYABAAPxFysFAsJqSisAgBgCIJYwCdAywBd0BuZBerVxUwAPE/Rl+jpYJqXIOjL5GQS/eSm8ySug1dqz8QpQnuI9K+CY2PyUUgDjC4tPbUYFYNZb5oylI0yQa7aucmFcDlJ3dmJy2pburPbaBmsTidtmX++o1iOARaYHGAAAA=')"><source type="image/avif" srcset="img/detail-900.avif 900w, img/detail-1600.avif 1600w" sizes="100vw"><source type="image/webp" srcset="img/detail-900.webp 900w, img/detail-1600.webp 1600w" sizes="100vw"><img src="img/detail-1600.webp" alt="" loading="lazy" decoding="async"></picture>
+</div>
+
 <!-- ROOM SPLIT -->
 <section style="padding-top:60px">
   <div class="container">
@@ -622,8 +649,12 @@
       </div>
       <p class="reveal d1" data-i18n="voices_p">Vijf-sterren-reviews zijn fijn. Het telefoontje van uw buur de volgende ochtend — daar werken wij voor.</p>
     </div>
-    <div class="quotes">
-      <figure class="quote reveal">
+    <div class="voices-grid">
+      <div class="voices-img reveal">
+        <picture style="background:#e8e3da center/cover no-repeat url('data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAABQBwCdASoYACQAPxFsr1CsJaQisBqqqYAiCWIAxQtfjo4R4JN4m4iDRv/fpyzOUfHF1b7QMQ1rsk3TnW1+NrLx0OwAAP7VpkGaCxheY+X3uR2v5FPoHPpS7o68zMjeI6Uj8Z9KInTZJIOhIlhQkw+afgYyRLup5NPFfFhDkD7vEG2hSPbKdWFEeH8uAa4VqdFHyjSyc+I8Ez+mvHv3CPtZcd/MDPFgWmpgG0Ar2ffaecEiabSGGXUjBRmxWOo0l8s/jNUA+um/uazD5h282EyQImIv2SYfvGKKudcbZSWdggAA')"><source type="image/avif" srcset="img/aftercare-800.avif 800w, img/aftercare-1400.avif 1400w" sizes="(max-width: 880px) 92vw, 480px"><source type="image/webp" srcset="img/aftercare-800.webp 800w, img/aftercare-1400.webp 1400w" sizes="(max-width: 880px) 92vw, 480px"><img src="img/aftercare-1400.webp" alt="Patiënt na een bezoek aan Sparkle Smile" loading="lazy" decoding="async"></picture>
+      </div>
+      <div class="quotes">
+        <figure class="quote reveal">
         <div class="stars">★★★★★</div>
         <blockquote data-i18n="q1">"Ik was negen jaar niet bij de tandarts geweest. Ik liep glimlachend naar buiten — echt glimlachend. Geen enkele blik van afkeuring."</blockquote>
         <figcaption class="who"><div class="av">M</div><div><b>Marieke H.</b><span>Hoorn</span></div></figcaption>
@@ -638,6 +669,7 @@
         <blockquote data-i18n="q3">"Facings die op tanden lijken, niet op tegels. Ze lieten me drie ontwerpen zien voordat we ook maar iets aanraakten."</blockquote>
         <figcaption class="who"><div class="av">P</div><div><b>Priya N.</b><span>Blokker</span></div></figcaption>
       </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -820,6 +852,7 @@
       care_eyebrow:'Why people stay',
       care_h2_html:'<span>Care that feels like</span> <em>a conversation,</em> <span>not a transaction.</span>',
       care_p:"Every appointment is built around the person in the chair — not around a calendar full of fifteen-minute slots. We move at the pace your mouth and your nerves deserve.",
+      banner_cap:"Stillness as a welcome — before the first word is spoken.",
       p1_h:'Unhurried appointments', p1_p:'Time to listen, examine and explain — without the back-of-the-neck rush.',
       p2_h:'Pricing in plain language', p2_p:'A clear written quote before any treatment begins. We bill directly to Zilveren Kruis, CZ, VGZ, Menzis and more.',
       p3_h:'Built for the anxious', p3_p:'Weighted blankets, noise-cancelling headphones, and a dentist who pauses the moment you raise your hand. Promise.',
@@ -899,6 +932,7 @@
       care_eyebrow:'Por qué se quedan',
       care_h2_html:'<span>Atención que se siente como</span> <em>una conversación,</em> <span>no como un trámite.</span>',
       care_p:'Cada cita está pensada para la persona en el sillón — no para una agenda llena de huecos de quince minutos. Avanzamos al ritmo que su boca, y sus nervios, merecen.',
+      banner_cap:'La calma como bienvenida — antes de que se diga la primera palabra.',
       p1_h:'Citas sin prisa', p1_p:'Tiempo para escuchar, examinar y explicar — sin la prisa de siempre.',
       p2_h:'Precios claros', p2_p:'Un presupuesto escrito antes de cualquier tratamiento. Facturamos directamente a Zilveren Kruis, CZ, VGZ, Menzis y más.',
       p3_h:'Pensado para los miedosos', p3_p:'Mantas con peso, auriculares con cancelación de ruido y una dentista que se detiene en cuanto usted levanta la mano. Prometido.',
