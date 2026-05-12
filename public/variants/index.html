@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hero variants — Sparkle Smile Dental Clinic</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:'Manrope',system-ui,sans-serif;background:#f5f1e8;color:#0f1a15;line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1240px;margin:0 auto;padding:48px 24px 80px}
+    @media(min-width:760px){.wrap{padding:72px 40px 120px}}
+    header{display:flex;flex-direction:column;gap:24px;margin-bottom:64px;padding-bottom:36px;border-bottom:1px solid rgba(15,26,21,.12)}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#6b7770}
+    .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#9bb39a;box-shadow:0 0 10px rgba(155,179,154,.6)}
+    h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,5vw,3.8rem);margin:0;letter-spacing:-.025em;line-height:1.05}
+    h1 em{font-style:italic;color:#5e7a5d}
+    .lede{font-size:1.05rem;line-height:1.7;color:#3a4640;max-width:60ch;margin:0}
+    .grid{display:grid;grid-template-columns:1fr;gap:32px}
+    @media(min-width:760px){.grid{grid-template-columns:1fr 1fr;gap:36px}}
+    .card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(15,26,21,.08);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;display:flex;flex-direction:column}
+    .card:hover{transform:translateY(-4px);box-shadow:0 32px 60px -28px rgba(15,26,21,.25)}
+    .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e8e6df}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+    .card:hover .thumb img{transform:scale(1.04)}
+    .ribbon{position:absolute;top:14px;left:14px;background:rgba(15,26,21,.92);color:#f5f1e8;padding:6px 11px;border-radius:999px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;backdrop-filter:blur(8px);display:flex;align-items:center;gap:7px}
+    .ribbon .dot{width:5px;height:5px;border-radius:50%;background:#9bb39a}
+    .body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+    .body h2{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;letter-spacing:-.015em;margin:0;line-height:1.2}
+    .body p{margin:0;color:#5a655e;font-size:.95rem;line-height:1.6;flex:1}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font-size:.84rem;font-weight:600;letter-spacing:.01em;border:1px solid #0f1a15;transition:all .25s;cursor:pointer}
+    .btn-primary{background:#0f1a15;color:#f5f1e8}
+    .btn-primary:hover{background:#1f2d24;border-color:#1f2d24}
+    .btn-ghost{background:transparent;color:#0f1a15}
+    .btn-ghost:hover{background:#0f1a15;color:#f5f1e8}
+    .btn .arr{transition:transform .25s}
+    .btn:hover .arr{transform:translateX(3px)}
+    footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(15,26,21,.1);font-size:.85rem;color:#6b7770;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center}
+    footer a{color:#0f1a15;font-weight:500;border-bottom:1px solid rgba(15,26,21,.2)}
+    footer a:hover{border-bottom-color:#9bb39a;color:#5e7a5d}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="eyebrow"><span class="dot"></span>Sparkle Smile Dental Clinic · Hero studies</span>
+      <h1>Four ways to <em>open</em> the page.</h1>
+      <p class="lede">Four hero variants of the Sparkle Smile landing page, all live and shipping the same site below the fold. Pick a favourite — or mix two.</p>
+    </header>
+
+    <div class="grid">
+      <!-- v0 -->
+      <article class="card">
+        <a class="thumb" href="variants/v0-side/">
+          <div class="ribbon"><span class="dot"></span>Variant 00</div>
+          <img src="../img/hero-1400.webp" alt="">
+        </a>
+        <div class="body">
+          <h2>Side-by-side</h2>
+          <p>The original. Editorial cream background, big serif headline left, portrait image right with a floating credit. Calm, traditional, magazine-page feel.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="variants/v0-side/">View live <span class="arr">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- v1 (current main) -->
+      <article class="card">
+        <a class="thumb" href="./">
+          <div class="ribbon"><span class="dot"></span>Variant 01 · Live</div>
+          <img src="../img/welcome-1600.webp" alt="">
+        </a>
+        <div class="body">
+          <h2>Full-bleed overlay <span style="font-style:italic;font-weight:300;color:#9bb39a">— current</span></h2>
+          <p>Magazine-cover energy. Full-bleed photo of the practice, headline + CTAs sit on top in cream with a sage gradient for legibility. The credit floats top-right.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="./">View live <span class="arr">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- v2 -->
+      <article class="card">
+        <a class="thumb" href="variants/v2-split/">
+          <div class="ribbon"><span class="dot"></span>Variant 02</div>
+          <img src="../img/room-1400.webp" alt="">
+        </a>
+        <div class="body">
+          <h2>Split frame</h2>
+          <p>Dark sage panel on the left holds the headline + CTAs in a thin sage-bordered frame, image fills the right half edge-to-edge. Architectural, premium clinic.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="variants/v2-split/">View live <span class="arr">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- v3 -->
+      <article class="card">
+        <a class="thumb" href="variants/v3-centered/">
+          <div class="ribbon"><span class="dot"></span>Variant 03</div>
+          <img src="../img/detail-1600.webp" alt="">
+        </a>
+        <div class="body">
+          <h2>Centered cover</h2>
+          <p>Massive centered Fraunces headline on cream, then a wide cinematic image inset below. Vogue spread / cover story. Strong typographic statement.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="variants/v3-centered/">View live <span class="arr">→</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <footer>
+      <span>Live at <a href="../">sparkle-smile-zwaag</a></span>
+      <span>· Built by Benji 🐾 for Raj</span>
+      <span>· Each variant ships the full site; only the hero changes.</span>
+    </footer>
+  </div>
+</body>
+</html>
